@@ -1,13 +1,13 @@
 Summary:	Fast float number parsing library (faster than strtod)
 Summary(pl.UTF-8):	Szybka biblioteka analizy liczb zmiennoprzecinkowych (szybsza niż strtod)
 Name:		fast_float
-Version:	8.2.5
+Version:	8.2.10
 Release:	1
 License:	Apache v2.0 or Boost or MIT
 Group:		Development/Libraries
 #Source0Download: https://github.com/fastfloat/fast_float/releases
 Source0:	https://github.com/fastfloat/fast_float/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	9afb0168059bad268412619fa2b54680
+# Source0-md5:	ddcf64ffe15f1e1ed964a355db7a04f3
 URL:		https://github.com/fastfloat/fast_float
 BuildRequires:	cmake >= 3.14
 BuildArch:	noarch
@@ -53,11 +53,9 @@ do liczb parzystych).
 %setup -q
 
 %build
-install -d build
-cd build
-%cmake ..
+%cmake -B build
 
-%{__make}
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
